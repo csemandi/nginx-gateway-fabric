@@ -1,0 +1,32 @@
+# NGINX Gateway Fabric Helm Values - v2.4.2
+controller:
+  image:
+    repository: nginx/nginx-gateway-fabric
+    tag: "2.4.2"
+    pullPolicy: IfNotPresent
+  
+  replicas: 2
+  
+  service:
+    type: LoadBalancer
+  
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  
+  nodeSelector: {}
+  
+  tolerations: []
+  
+  affinity: {}
+
+nginxGateway:
+  logging:
+    level: info
+
+rbac:
+  create: true
